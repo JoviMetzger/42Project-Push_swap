@@ -15,7 +15,7 @@
 // *top is the pointer to the top element of *stack.
 // ft_pa(): Take the first element at the top of 'b' and put it 
 // at the top of 'a'. Do nothing if b is empty
-void ft_pa(int *stack_a, int *top_a, int *stack_b, int *top_b)
+void pa(int *stack_a, int *top_a, int *stack_b, int *top_b)
 {
   if (*top_b >= 0)
     stack_a[++(*top_a)] = stack_b[(*top_b)--];
@@ -24,7 +24,7 @@ void ft_pa(int *stack_a, int *top_a, int *stack_b, int *top_b)
 
 // ft_pb(): Take the first element at the top of 'a' and put it 
 // at the top of 'b'. Do nothing if a is empty.
-void ft_pb(int *stack_a, int *top_a, int *stack_b, int *top_b)
+void pb(int *stack_a, int *top_a, int *stack_b, int *top_b)
 {
   if (*top_a >= 0)
     stack_b[++(*top_b)] = stack_a[(*top_a)--];

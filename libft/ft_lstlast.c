@@ -6,7 +6,7 @@
 /*   By: jmetzger <jmetzger@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 07:22:56 by jmetzger      #+#    #+#                 */
-/*   Updated: 2022/10/28 07:43:58 by jmetzger      ########   odam.nl         */
+/*   Updated: 2023/03/08 14:38:35 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@ t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
 		return (0);
-	while (lst -> next)
-		lst = lst -> next;
+	while (lst->next)
+	{
+		lst = lst->next;
+		if (lst->next == NULL)
+			return (lst);
+	}
 	return (lst);
 }

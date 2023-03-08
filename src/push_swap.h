@@ -6,7 +6,7 @@
 /*   By: jmetzger <jmetzger@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/23 11:02:52 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/03/07 13:54:48 by jmetzger      ########   odam.nl         */
+/*   Updated: 2023/03/08 15:38:39 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 # include <limits.h>
 # include "../libft/libft.h"
 
-// typedef struct s_data
-// {
-// 	int				value;
-// 	int				index;
-// 	struct s_data	*next;
-// } t_swap;
+typedef struct s_data
+{
+	int				value;
+	int				index;
+	struct s_data	*next;
+} t_swap;
 
+t_list	*ft_lstnew(void *content);
 void ft_error(char *msg);
 void    ft_free(char **str);
 void ft_checking_arg(int argc, char **arg);

@@ -15,7 +15,7 @@
 // *top is the pointer to the top element of *stack.
 // ft_rra(): Shift down all elements of stack_a by 1.
 // The last element becomes the first one.
-void ft_rra(int *stack, int *top)
+void rra(int *stack, int *top)
 {
     int tmp;
     int i;
@@ -36,7 +36,7 @@ void ft_rra(int *stack, int *top)
 
 // ft_rrb(): Shift down all elements of stack_b by 1.
 // The last element becomes the first one.
-void ft_rrb(int *stack, int *top)
+void rrb(int *stack, int *top)
 {
     int tmp;
     int i;
@@ -56,9 +56,9 @@ void ft_rrb(int *stack, int *top)
 }
 
 // ft_rrr(): rra and rrb at the same time.
-void ft_rrr(int *stack_a, int *top_a, int *stack_b, int *top_b)
+void rrr(int *stack_a, int *top_a, int *stack_b, int *top_b)
 {
-    ft_rra(int *stack_a, int *top_a);
-    ft_rrb(int *stack_b, int *top_b);
+    rra(int *stack_a, int *top_a);
+    rrb(int *stack_b, int *top_b);
     ft_printf("rrr\n"); 
 }

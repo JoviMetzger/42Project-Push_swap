@@ -6,7 +6,7 @@
 /*   By: jmetzger <jmetzger@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/23 11:07:56 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/03/07 17:32:36 by jmetzger      ########   odam.nl         */
+/*   Updated: 2023/03/08 15:51:12 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void ft_is_num(char *num)
 	while (num[i])
 	{
 		if (!ft_isdigit(num[i]))
-			ft_error("Error, some arguments aren’t integers");
+			ft_error("Error");
 		i++;
 	}
 }
@@ -89,10 +89,32 @@ void ft_checking_arg(int argc, char **argv)
 	while (array[i])
 	{
 		tmp = ft_atoi(array[i]);
-		//printf("tmp; %ld\n", tmp);
+		printf("tmp1; %ld\n", tmp); // remove
 		ft_is_num(array[i]);
 		ft_double_num(array);
+		i++;
+	}
+}
+
+static void ft_init_stackA(t_list **stack_a, int argc, char **argv)
+{
+	t_list *new;
+	int i;
+	char **array;
+
+	i = 0;
+	if (argc == 2)
+		array = ft_split(argv[1], ' ');
+	else
+	{
 		//ft_is_sorted(tmp);
+		i = 1;
+		array = argv;
+	}
+	while (array[i])
+	{
+		new = ft_lstnew((void *)(intptr_t)ft_atoi(array[i]));
+		ft_lstadd_back(stack_a, new);
 		i++;
 	}
 }
@@ -100,15 +122,16 @@ void ft_checking_arg(int argc, char **argv)
 int main(int argc, char **argv)
 {
 	atexit(ft_systemleaks); // USE FOR LEAKS
-	// t_swap *stack_a;
-	// t_swap *stack_b;
+	t_list **stack_a;
+	//t_swap *stack_b;	
 	
 	if (argc >= 2)
 	{
 		ft_checking_arg(argc, argv);
 		printf("success");
-		// stack_a = (t_swap *)malloc(sizeof(t_swap));
-		// stack_b = (t_swap *)malloc(sizeof(t_swap));
+		stack_a = (t_list **)malloc(sizeof(t_list));
+		//stack_b = (t_swap *)malloc(sizeof(t_swap));
+		ft_init_stackA(stack_a, argc, argv);
 		//ft_sort_stack(stack_a, stack_b);
 		//ft_shellSort(data, size);
 		//ft_printArray(data, size);

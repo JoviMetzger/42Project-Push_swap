@@ -6,7 +6,7 @@
 /*   By: jmetzger <jmetzger@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 05:07:17 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/01/12 00:15:57 by jmetzger      ########   odam.nl         */
+/*   Updated: 2023/03/08 14:37:06 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
 	if (!lst)
 		return ;
-	del(lst -> content);
+	del(lst->content);
 	free(lst);
 }
