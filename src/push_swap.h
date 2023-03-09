@@ -6,7 +6,7 @@
 /*   By: jmetzger <jmetzger@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/23 11:02:52 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/03/08 15:38:39 by jmetzger      ########   odam.nl         */
+/*   Updated: 2023/03/09 12:19:45 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef struct s_data
 } t_swap;
 
 t_list	*ft_lstnew(void *content);
-void ft_error(char *msg);
-void    ft_free(char **str);
-void ft_checking_arg(int argc, char **arg);
+void	ft_error(char *msg);
+void	ft_free(char **str);
+void	ft_checking_arg(int argc, char **arg);
 
 #endif
