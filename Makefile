@@ -1,9 +1,11 @@
 # Files
 NAME	= push_swap
 LIBFT	= ./libft/libft.a
-SRC		= ./src/push_swap.c ./src/swap_utils.c
-OBJ		= $(SRC:.c=.o)
-CC		= gcc
+SRC	= ./src/push_swap.c ./src/swap_utils.c
+OBJ	= $(addprefix $(OBJDIR)/, $(notdir$(SRC:%.c=%.o)))
+OBJDIR 	= obj
+SRCDIR 	= src
+CC	= gcc
 CFLAGS	= -Wall -Werror -Wextra
 
 # Colors
@@ -27,6 +29,10 @@ $(NAME): $(LIBFT) $(OBJ)
 
 $(LIBFT): 
 		@$(MAKE) -C ./libft
+		
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+		mkdir -p $(OBJDIR)
+		$(CC) $(CFLAGS) -c $< -o $@
 
 # Clean
 clean:
