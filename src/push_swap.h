@@ -18,12 +18,21 @@
 # include <limits.h>
 # include "../libft/libft.h"
 
+typedef struct s_stack
+{
+	int content;
+	int	index;
+	struct s_stack	*next;
+} t_list;
+
 typedef struct s_data
 {
-	int				value;
-	int				index;
-	struct s_data	*next;
-} t_swap;
+	t_list *stack_a;
+	t_list *stack_b;
+	
+    int len;
+    int limit;   
+} t_data;
 
 t_list	*ft_lstnew(void *content);
 void	ft_error(char *msg);
