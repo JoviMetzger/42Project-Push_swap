@@ -46,7 +46,7 @@ static void ft_is_num(char *num)
 	while (num[i])
 	{
 		if (!ft_isdigit(num[i]))
-			ft_error("Error");
+			ft_error("Error, please check if your input only consists of digit's");
 		i++;
 	}
 }
@@ -75,7 +75,6 @@ static void ft_double_num(char **num)
 void ft_checking_arg(int argc, char **argv)
 {
 	int i;
-	long tmp;
 	char **array;
 
 	i = 0;
@@ -88,8 +87,6 @@ void ft_checking_arg(int argc, char **argv)
 	}
 	while (array[i])
 	{
-		tmp = ft_atoi(array[i]);
-		printf("tmp1; %ld\n", tmp); // remove
 		ft_is_num(array[i]);
 		ft_double_num(array);
 		i++;
@@ -107,13 +104,12 @@ static void ft_init_stackA(t_list **stack_a, int argc, char **argv)
 		array = ft_split(argv[1], ' ');
 	else
 	{
-		//ft_is_sorted(tmp);
 		i = 1;
 		array = argv;
 	}
 	while (array[i])
 	{
-		new = ft_lstnew((void *)(intptr_t)ft_atoi(array[i]));
+		new = ft_lstnew(ft_atoi(array[i]));
 		ft_lstadd_back(stack_a, new);
 		i++;
 	}
@@ -121,20 +117,17 @@ static void ft_init_stackA(t_list **stack_a, int argc, char **argv)
 
 int main(int argc, char **argv)
 {
-	atexit(ft_systemleaks); // USE FOR LEAKS
-	t_list **stack_a;
-	//t_swap *stack_b;	
-	
+	t_data *data;
+		
 	if (argc >= 2)
 	{
 		ft_checking_arg(argc, argv);
-		printf("success");
-		stack_a = (t_list **)malloc(sizeof(t_list));
-		//stack_b = (t_swap *)malloc(sizeof(t_swap));
-		ft_init_stackA(stack_a, argc, argv);
-		//ft_sort_stack(stack_a, stack_b);
-		//ft_shellSort(data, size);
-		//ft_printArray(data, size);
+		data = (t_data *)malloc(sizeof(t_data));
+		data->stack_a = NULL;
+		data->stack_b = NULL;
+		ft_init_stackA(&data->stack_a, argc, argv);
+		ft_stack_sorted(data->stack_a);
+		//quickSort(*stack_a, *stack_b);
 	}
 	else
 		ft_error("Error, you don't have the correct argument count");
