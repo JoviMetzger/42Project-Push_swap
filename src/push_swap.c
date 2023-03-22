@@ -6,7 +6,7 @@
 /*   By: jmetzger <jmetzger@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/23 11:07:56 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/03/08 15:51:12 by jmetzger      ########   odam.nl         */
+/*   Updated: 2023/03/22 17:20:32 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,18 @@
 // - If no parameters are specified, the program must not
 //   display anything and give the prompt back.
 //
+// --NOTE--
+//		-	int x = 1;
+//		-	void *p = &x;
+//		-	int *a = (int *)p;
+//		-	int y = *(int *)p		->		int x = 1
+//			-	which means (int *)p makes sure that the result is a integer pointer to p 
+//				and *(int *)p is a dereference from (int *)p, 
+//				so the result of y is 1.
+//			-	int y = *a;		->		int *y = *(int *)p;
+//				BUT int y = *a		-not the same as-	int y = a	
+//				& int y = a		-not the same as- int *y = *(int *)p;
+//			-	int *y = *(int *)p	-&-		int y = *(int *)p	-> are not the same.
 
 //___________________________________________
 // FOR LEAKS
@@ -46,7 +58,7 @@ static void ft_is_num(char *num)
 	while (num[i])
 	{
 		if (!ft_isdigit(num[i]))
-			ft_error("Error");
+			ft_error("Error, please check if your input only consists of digit's");
 		i++;
 	}
 }
@@ -75,7 +87,6 @@ static void ft_double_num(char **num)
 void ft_checking_arg(int argc, char **argv)
 {
 	int i;
-	long tmp;
 	char **array;
 
 	i = 0;
@@ -88,55 +99,106 @@ void ft_checking_arg(int argc, char **argv)
 	}
 	while (array[i])
 	{
-		tmp = ft_atoi(array[i]);
-		printf("tmp1; %ld\n", tmp); // remove
+		ft_atoi(array[i]);
 		ft_is_num(array[i]);
 		ft_double_num(array);
 		i++;
 	}
 }
 
-static void ft_init_stackA(t_list **stack_a, int argc, char **argv)
+static void	ft_fill_stackA(t_data *data, int argc, char **argv)
 {
-	t_list *new;
-	int i;
-	char **array;
+	t_stack	*new;
+	char	**array;
+	int		i;
 
 	i = 0;
 	if (argc == 2)
 		array = ft_split(argv[1], ' ');
 	else
 	{
-		//ft_is_sorted(tmp);
 		i = 1;
 		array = argv;
 	}
 	while (array[i])
 	{
-		new = ft_lstnew((void *)(intptr_t)ft_atoi(array[i]));
-		ft_lstadd_back(stack_a, new);
+		printf("array; %s\n", array[i]);  //rm
+		new = ft_lstnew_a(ft_atoi(array[i]));
+		ft_lstadd_back_a(&data->stack_a, new);
 		i++;
 	}
+	if (ft_lstsize_a(data->stack_a) == 1)
+		ft_error("Error, input only consists of one number");
 }
-
+//-
+static void ft_stack_sorted(t_data *data)
+{
+	while (data->stack_a && data->stack_a->next)
+	{
+		if ((int)data->stack_a->content > (int)data->stack_a->next->content)
+			return ;
+		data->stack_a = data->stack_a->next;
+	}
+	ft_error("Error, arguments are already sorted");
+}
+//-
 int main(int argc, char **argv)
 {
-	atexit(ft_systemleaks); // USE FOR LEAKS
-	t_list **stack_a;
-	//t_swap *stack_b;	
-	
+	//atexit(ft_systemleaks); // USE FOR LEAKS
+	t_data *data;
+		
 	if (argc >= 2)
 	{
 		ft_checking_arg(argc, argv);
-		printf("success");
-		stack_a = (t_list **)malloc(sizeof(t_list));
-		//stack_b = (t_swap *)malloc(sizeof(t_swap));
-		ft_init_stackA(stack_a, argc, argv);
-		//ft_sort_stack(stack_a, stack_b);
-		//ft_shellSort(data, size);
-		//ft_printArray(data, size);
+		data = (t_data *)malloc(sizeof(t_data));
+		data->stack_a = NULL;
+		data->stack_b = NULL;
+		ft_fill_stackA(data, argc, argv);
+		ft_stack_sorted(data);
+		//ft_printStacks(*stack_a); //rm
+		//printStacks(data->stack_a, data->stack_b);
+		//quickSort(data);
 	}
 	else
 		ft_error("Error, you don't have the correct argument count");
 	return (0);
+}
+
+// -----------------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------------
+
+void printStack(t_stack *s)
+{
+	t_stack *tmp;
+	
+	tmp = s;
+    while (tmp != NULL)
+	{
+		printf("node; %d\n", tmp->content);
+		tmp = tmp->next;
+	}
+}
+
+void printStacks(t_stack *a, t_stack *b) {
+    printf("Stack a:\n");
+    printStack(a);
+    printf("Stack b:\n");
+    printStack(b);
+}
+
+// -----------------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------------
+
+void ft_printStacks(t_stack *s) 
+{
+	t_stack *tmp;
+	
+	tmp = s;
+    printf("Stack contents: \n");
+    while (tmp != NULL)
+	{
+		printf("node; %d\n", tmp->content);
+		tmp = tmp->next;
+	}
+    printf("\n");
 }

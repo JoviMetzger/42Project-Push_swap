@@ -15,50 +15,54 @@
 // *top is the pointer to the top element of *stack.
 // ft_ra: Shift up all elements of stack_a by 1.
 // The first element becomes the last one.
-void ra(int *stack, int *top)
+void ra(t_data *data)
 {
-    int i;
-    int tmp;
-
-    if (*top > 0)
-    {
-        tmp = stack[*top];
-        i = *top;
-        while (i > 0)
-        {
-            stack[i] = stack[i - 1];
-            i--;
-        }
-        stack[0] = tmp;
-    }
-    ft_printf("ra\n"); 
+   t_stack *first;
+   t_stack *last;
+   
+   if (data->stack_a)
+   {
+		first = data->stack_a;
+		last = data->stack_a;
+		
+		while (last->next != NULL)
+		{
+			last = last->next;	
+		}
+		data->stack_a = first->next;
+		first->next = NULL;
+		last->next = first;
+   }
+	printf("ra\n");
 }
 
 // ft_rb(): Shift up all elements of stack_b by 1.
 // The first element becomes the last one.
-void rb(int *stack, int *top)
+void rb(t_data *data)
 {
-    int i;
-    int tmp;
-
-    if (*top > 0)
-    {
-        tmp = stack[*top];
-        i = *top;
-        while (i > 0)
-        {
-            stack[i] = stack[i - 1];
-            i--;
-        }
-        stack[0] = tmp;
-    }
-    ft_printf("rb\n"); 
+   t_stack *first;
+   t_stack *last;
+   
+   if (data->stack_b)
+   {
+		first = data->stack_b;
+		last = data->stack_b;
+		
+		while (last->next != NULL)
+		{
+			last = last->next;	
+		}
+		data->stack_b = first->next;
+		first->next = NULL;
+		last->next = first;
+   }
+	printf("rb\n");
 }
 
 // ft_rr(): ra and rb at the same time.
-void rr(int *stack_a, int *top_a, int *stack_b, int *top_b)
+void rr(t_data *data) 
 {
-    ra(int *stack_a, int *top_a);
-    rb(int *stack_b, int *top_b);
-    ft_printf("rr\n"); 
+    ra(data);
+    rb(data);
+	printf("rr\n");
 }

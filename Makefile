@@ -1,7 +1,7 @@
 # Files
 NAME	= push_swap
 LIBFT	= ./libft/libft.a
-SRC		= ./src/push_swap.c ./src/swap_utils.c
+SRC		= ./src/push_swap.c ./src/action_push.c ./src/action_reverse.c ./src/action_rotate.c ./src/action_swap.c ./src/swap_utils.c ./src/t_list.c 
 OBJ		= $(SRC:.c=.o)
 CC		= gcc
 CFLAGS	= -Wall -Werror -Wextra
@@ -23,7 +23,7 @@ all:	$(NAME)
 
 $(NAME): $(LIBFT) $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
-	@echo "$(GREEN) $(BOLD)Compilation Done$(RESET)"
+	@echo "$(MAGENTA) $(BOLD)✨Compilation Done✨$(RESET)"
 
 $(LIBFT): 
 		@$(MAKE) -C ./libft
@@ -32,16 +32,17 @@ $(LIBFT):
 clean:
 		@$(MAKE) clean -C ./libft
 		@rm -f $(OBJ)
-		@echo "$(RED)Cleaning Done$(RESET)"
+		@echo "$(GREEN)✅ Done ✅$(RESET)"
 
 fclean:
 		@$(MAKE) fclean -C ./libft
 		@rm -f $(OBJ)
 		@rm -f $(NAME)
-		@echo "$(RED)fcleaning Done$(RESET)"
+		@echo "$(GREEN)✅ Done ✅$(RESET)"
 
-re:	fclean all
+re:		fclean all 
 
 .PHONY: all clean fclean re
+
 
 
