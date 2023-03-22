@@ -15,38 +15,43 @@
 // *top is the pointer to the top element of *stack.
 // ft_sa(): Swap the first 2 elements at the top of stack_a. 
 // Do nothing if there is only one or no elements.
-void sa(int *stack, int *top)
+void sa(t_data *data)
 {
-    int tmp;
-
-    if (*top > 0)
-    {
-        tmp = stack[*top];
-        stack[*top] = stack[*top - 1];
-        stack[*top - 1] = tmp;
-    }
-    ft_printf("sa\n");
+	int a;
+	int b;
+	
+    if (data->stack_a) 
+	{
+		a = data->stack_a->content;
+		b = data->stack_a->next->content;
+		data->stack_a->content = b;
+		data->stack_a->next->content = a;
+	}
+	printf("sa\n");
 }
 
 // ft_sb(): Swap the first 2 elements at the top of stack_b.
 // Do nothing if there is only one or no elements.
-void sb((int *stack, int *top))
+void sb(t_data *data) 
 {
-    int tmp;
-
-    if (*top > 0)
-    {
-        tmp = stack[*top];
-        stack[*top] = stack[*top - 1];
-        stack[*top - 1] = tmp;
-    }
-    ft_printf("sb\n"); 
+	int a;
+	int b;
+	
+    if (data->stack_b) 
+	{
+		b = data->stack_b->content;
+		a = data->stack_b->next->content;
+		data->stack_b->content = a;
+		data->stack_b->next->content = b;
+	}
+	printf("sb\n");
 }
 
 // ft_ss(): sa and sb at the same time.
-void ss(int *stack_a, int *top_a, int *stack_b, int *top_b)
+void ss(t_data *data) 
 {
-    sa(int *stack_a, int *top_a);
-    sb(int *stack_b, int *top_b); 
-    ft_printf("ss\n");
+    sa(data);
+    sb(data);
+	printf("ss\n");
 }
+
