@@ -12,21 +12,6 @@
 
 #include "push_swap.h"
 
-// - set of integer values
-// - 2 stacks, a and b
-// - set of instructions to manipulate both stacks.
-// - The stack a contains a random amount of negative and/or
-//   positive numbers which cannot be duplicated.
-// - operations; sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr
-// -  Error message must display "Error" followed by a ’\n’
-// - Errors include for example:
-//                  -  some arguments aren’t integers,
-//                  - some arguments are bigger than an
-//                    integer and/or there are duplicates.
-// - If no parameters are specified, the program must not
-//   display anything and give the prompt back.
-//
-
 //___________________________________________
 // FOR LEAKS
 void ft_systemleaks(void)
