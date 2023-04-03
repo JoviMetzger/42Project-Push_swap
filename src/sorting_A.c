@@ -85,12 +85,12 @@ void sort_3(t_data *data)
 }
 
 //
-// void sorting_stack_A(t_data *data)
-// {
-//   if (ft_lstsize_a(data->stack_a) > 3 && !stack_sorted(data->stack_a))
-//     pb(data);
-//   if (ft_lstsize_a(data->stack_a) > 3 && !stack_sorted(data->stack_a))
-//     sort_till_3(data); 
-//   if (!stack_sorted(data->stack_a))
-//     sort_3(data);
-// }
+void sorting_stack_A(t_data *data)
+{
+  if (ft_lstsize_a(data->stack_a) > 3 && !stack_sorted(data->stack_a))
+    pb(data);
+  if (ft_lstsize_a(data->stack_a) > 3 && !stack_sorted(data->stack_a))
+    sort_till_3(data); 
+  if (!stack_sorted(data->stack_a))
+    sort_3(data);
+}
