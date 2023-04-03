@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   action_push.c                                   :+:    :+:            */
+/*   action_push.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jmetzger <jmetzger@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/02/16 11:54:02 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/02/16 11:58:06 by jmetzger      ########   odam.nl         */
+/*   Created: 2023/04/03 14:53:42 by jmetzger      #+#    #+#                 */
+/*   Updated: 2023/04/03 14:54:20 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // *top is the pointer to the top element of *stack.
-// ft_pa(): Take the first element at the top of 'b' and put it 
-// at the top of 'a'. Do nothing if b is empty
+// pa(): Take the first element at the top of 'b' and put it 
+// at the top of 'a'.
 void pb(t_data *data)
 {
-	t_list *top;
+	t_stack *top;
 	
     if (data->stack_a)
 	{
@@ -29,11 +29,11 @@ void pb(t_data *data)
 	}
 }
 
-// ft_pb(): Take the first element at the top of 'a' and put it 
-// at the top of 'b'. Do nothing if a is empty.
-void pa(t_data *data) ///DONE
+// pb(): Take the first element at the top of 'a' and put it 
+// at the top of 'b'
+void pa(t_data *data) 
 {
-	t_list *top;
+	t_stack *top;
 	
     if (data->stack_b)
 	{
@@ -44,4 +44,3 @@ void pa(t_data *data) ///DONE
 		printf("pa\n");
 	}
 }
-
