@@ -36,27 +36,27 @@ int ft_B_rotate_option(t_data *data)
 }
 
 //
-// void sorting_stack_B(t_data *data)
-// {
-//   t_stack *current;
-//   int option;
-
-//   while (ft_lstsize_a(data->stack_b))
-//   {
-//     current = data->stack_b;
-//     option = ft_B_rotate_option(data);
-//     while (option >= 0)
-//     {
-//       if (option == case_one_b(data, current))
-//         option = apply_case_one(data, current->content, 'b');
-//       else if (option == case_two_b(data, current))
-//         option = apply_case_two(data, current->content, 'b');
-//       else if (option == case_three_b(data, current))
-//         option = apply_case_three(data, current->content, 'b');
-//       else if (option == case_four_b(data, current))
-//         option = apply_case_four(data, current->content, 'b');
-//       else
-//         current = current->next;
-//     }
-//   }
-// }
+void sorting_stack_B(t_data *data)
+{
+  t_stack *current;
+  int option;
+  
+  while (ft_lstsize_a(data->stack_b))
+  {
+    current = data->stack_b;
+    option = ft_B_rotate_option(data);
+    while (option >= 0)
+    {
+      if (option == case_one_b(data, current))
+        option = apply_case_one(data, current->content, 'b');
+      else if (option == case_two_b(data, current))
+        option = apply_case_two(data, current->content, 'b');
+      else if (option == case_three_b(data, current))
+        option = apply_case_three(data, current->content, 'b');
+      else if (option == case_four_b(data, current))
+        option = apply_case_four(data, current->content, 'b');
+      else
+        current = current->next;
+    }
+  }
+}
