@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   action_rotate.c                                 :+:    :+:            */
+/*   action_rotate.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jmetzger <jmetzger@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/02/16 11:54:21 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/02/16 11:57:26 by jmetzger      ########   odam.nl         */
+/*   Created: 2023/04/03 14:55:29 by jmetzger      #+#    #+#                 */
+/*   Updated: 2023/04/03 14:55:35 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// *top is the pointer to the top element of *stack.
-// ft_ra: Shift up all elements of stack_a by 1.
+// action_rotate_a & ra(): Shift up all elements of stack_a by 1.
 // The first element becomes the last one.
-void ra(t_data *data)
+static void action_rotate_a(t_data *data)
 {
-   t_list *first;
-   t_list *last;
+   t_stack *first;
+   t_stack *last;
    
    if (data->stack_a)
    {
@@ -33,15 +32,14 @@ void ra(t_data *data)
 		first->next = NULL;
 		last->next = first;
    }
-	printf("ra\n");
 }
 
-// ft_rb(): Shift up all elements of stack_b by 1.
+// action_rotate_b() & rb(): Shift up all elements of stack_b by 1.
 // The first element becomes the last one.
-void rb(t_data *data)
+static void action_rotate_b(t_data *data)
 {
-   t_list *first;
-   t_list *last;
+   t_stack *first;
+   t_stack *last;
    
    if (data->stack_b)
    {
@@ -56,10 +54,20 @@ void rb(t_data *data)
 		first->next = NULL;
 		last->next = first;
    }
-	printf("rb\n");
 }
 
-// ft_rr(): ra and rb at the same time.
+void ra(t_data *data)
+{
+   	action_rotate_a(data);
+	printf("ra\n");
+}
+
+void rb(t_data *data)
+{
+   	action_rotate_b(data);
+	printf("rb\n");
+}
+// rr(): ra and rb at the same time.
 void rr(t_data *data) 
 {
     ra(data);
