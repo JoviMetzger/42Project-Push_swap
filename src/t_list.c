@@ -6,12 +6,13 @@
 /*   By: jmetzger <jmetzger@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/20 22:28:19 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/03/22 15:26:32 by jmetzger      ########   odam.nl         */
+/*   Updated: 2023/04/03 13:03:09 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// 
 int	ft_lstsize_a(t_stack *lst)
 {
 	int	i;
@@ -25,6 +26,7 @@ int	ft_lstsize_a(t_stack *lst)
 	return (i);
 }
 
+//
 t_stack	*ft_lstlast_a(t_stack *head)
 {
 	t_stack	*tmp;
@@ -39,6 +41,7 @@ t_stack	*ft_lstlast_a(t_stack *head)
 	return (tmp);
 }
 
+//
 void	ft_lstadd_back_a(t_stack **stack, t_stack *new)
 {
 	t_stack	*n;
@@ -56,6 +59,7 @@ void	ft_lstadd_back_a(t_stack **stack, t_stack *new)
 	}
 }
 
+//
 t_stack	*ft_lstnew_a(int value)
 {
 	t_stack	*new;
