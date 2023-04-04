@@ -75,18 +75,3 @@ int ft_max(t_stack *stack)
 	}
 	return (biggest);
 }
-
-//
-int	find_index(t_stack *stack, int nbr)
-{
-	int		i;
-
-	i = 0;
-	while (stack->content != nbr)
-	{
-		i++;
-		stack = stack->next;
-	}
-	stack->index = 0;
-	return (i);
-}
