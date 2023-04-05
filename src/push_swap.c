@@ -55,28 +55,10 @@ void sorting(t_data *data)
 	{
 		sorting_stack_A(data);
 		sorting_stack_B(data);
-		last_stackA_sort(data);
 	}
 }
 
-// //
-void last_stackA_sort(t_data *data)
-{
-	int new_i;
-
-	new_i = find_index(data->stack_a, ft_min(data->stack_a));
-	if (new_i < ft_lstsize_a(data->stack_a) - new_i)
-	{
-		while (data->stack_a->content != ft_min(data->stack_a))
-			ra(data);
-	}
-	else
-	{
-		while (data->stack_a->content != ft_min(data->stack_a))
-			rra(data);
-	}
-}
-
+//
 int main(int argc, char **argv)
 {
 	//atexit(ft_systemleaks); // USE FOR LEAKS
@@ -119,18 +101,4 @@ void printStacks(t_stack *a, t_stack *b) {
     printStack(a);
     printf("Stack b:\n");
     printStack(b);
-}
-
-void ft_printStacks(t_stack *s) 
-{
-	t_stack *tmp;
-	
-	tmp = s;
-    printf("Stack contents: \n");
-    while (tmp != NULL)
-	{
-		printf("node; %d\n", tmp->content);
-		tmp = tmp->next;
-	}
-    printf("\n");
 }
