@@ -79,7 +79,7 @@ void checking_arg(int argc, char **argv)
 	{
 		ft_atoi(array[i]);
 		ft_is_num(array[i]);
-        ft_minus_zero_check(array[i]);
+		ft_minus_zero_check(array[i]);
 		ft_double_num(array);
 		i++;
 	}
