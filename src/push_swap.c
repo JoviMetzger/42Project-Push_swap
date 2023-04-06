@@ -49,12 +49,12 @@ void	fill_stackA(t_data *data, int argc, char **argv)
 //
 void sorting(t_data *data)
 {
-	if (ft_lstsize_a(data->stack_a) == 2)
-		sa(data);
+	if (ft_lstsize_a(data->stack_a) <= 3)
+		sort_3(data);
 	else
 	{
-		sorting_stack_A(data);
-		sorting_stack_B(data);
+    	sorting_stack_A(data);
+    	sorting_stack_B(data);
 	}
 }
 
