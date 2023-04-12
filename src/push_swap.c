@@ -73,6 +73,7 @@ int main(int argc, char **argv)
 		fill_stackA(data, argc, argv);
 		if (stack_sorted(data->stack_a))
  		 	ft_error("Error, arguments A are already sorted");
+		indexing(data->stack_a);
 		sorting(data);
 		//printStacks(data->stack_a, data->stack_b); //rm
 	}
