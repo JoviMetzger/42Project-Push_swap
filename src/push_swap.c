@@ -22,6 +22,37 @@ void ft_systemleaks(void)
 //____________________________________________
 
 //
+void indexing(t_stack *stack)
+{
+    t_stack  *top;
+    t_stack  *min;
+    int     index;
+
+    index = 1; //could be 0 aswell;
+    while (stack)
+    {
+        top = stack;
+        min = NULL;
+        while (top)
+        {
+            if ((top->index == -1) && (!min || top->content < min->content))
+            {
+                min = top;
+            }
+            top = top->next;
+        }
+        if (min)
+        {
+            min->index = index++;
+        }
+        else
+        {
+            break;
+        }
+    }
+    //print_stack_with_index(stack); //rm
+}
+//
 void	fill_stackA(t_data *data, int argc, char **argv)
 {
 	t_stack	*new;
@@ -102,4 +133,20 @@ void printStacks(t_stack *a, t_stack *b) {
     printStack(a);
     printf("Stack b:\n");
     printStack(b);
+}
+
+void print_stack(t_stack *stack) {
+    int index = 0;
+    while (stack) {
+		 printf("Content: %d || Index: %d || Position: %d || Pointer: %p\n", 
+               stack->content, stack->index, stack->pos, stack);
+        stack = stack->next;
+        index++;
+    }
+}
+void print_data(t_data *data) {
+    printf("Stack A:\n");
+    print_stack(data->stack_a);
+    printf("Stack B:\n");
+    print_stack(data->stack_b);
 }
