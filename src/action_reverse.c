@@ -12,66 +12,42 @@
 
 #include "push_swap.h"
 
-// action_reverse_a() & rra(): Shift down all elements of stack_a by 1.
+// action_reverse(): Shift down all elements of stack by 1.
 // The last element becomes the first one.
-static void action_reverse_a(t_data *data)
+static void action_reverse(t_stack **stack)
 {
-	t_stack *prev_last;
-	t_stack *last;
-	
-    if (data->stack_a)
+	t_stack	*prev;
+	t_stack	*new;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		return ;
+	prev = *stack;
+	while (prev->next != NULL)
 	{
-		last = data->stack_a;
-		prev_last = NULL;
-		while (last->next != NULL)
-		{
-			prev_last = last;
-			last = last->next;
-		}	
-		prev_last->next = NULL;
-		last->next = data->stack_a;
-		data->stack_a = last;	
+		new = prev;
+		prev = prev->next;
 	}
+	prev->next = *stack;
+	new->next = NULL;
+	*stack = prev;	
 }
 
-// action_reverse_b() & rrb(): Shift down all elements of stack_b by 1.
-// The last element becomes the first one.
-static void action_reverse_b(t_data *data)
+void rra(t_stack **stack_a)
 {
-	t_stack *prev_last;
-	t_stack *last;
-	
-    if (data->stack_b)
-	{
-		last = data->stack_b;
-		prev_last = NULL;
-		while (last->next != NULL)
-		{
-			prev_last = last;
-			last = last->next;
-		}	
-		prev_last->next = NULL;
-		last->next = data->stack_b;
-		data->stack_b = last;	
-	}
+   	action_reverse(stack_a);
+	ft_putstr("rra\n");
 }
 
-void rra(t_data *data)
+void rrb(t_stack **stack_b)
 {
-   	action_reverse_a(data);
-	printf("rra\n");
-}
-
-void rrb(t_data *data)
-{
-   	action_reverse_b(data);
-	printf("rrb\n");
+   	action_reverse(stack_b);
+	ft_putstr("rrb\n");
 }
 
 // rrr(): rra and rrb at the same time.
-void rrr(t_data *data)
+void rrr(t_stack **stack_a, t_stack **stack_b)
 {
-    action_reverse_a(data);
-    action_reverse_b(data);
-	printf("rrr\n");
+    action_reverse(stack_a);
+    action_reverse(stack_b);
+	ft_putstr("rrr\n");
 }
