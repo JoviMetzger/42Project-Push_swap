@@ -12,35 +12,32 @@
 
 #include "push_swap.h"
 
-// *top is the pointer to the top element of *stack.
-// pa(): Take the first element at the top of 'b' and put it 
-// at the top of 'a'.
-void pb(t_stack **stack_a, t_stack **stack_b)
+// action_push(): Pushes the top element of src stack to the top of dest stack.
+void	action_push(t_stack **src, t_stack **dest)
 {
-	t_stack *top;
-	
-    if (*stack_a)
+	t_stack	*tmp;
+
+	if (src == NULL || *src == NULL)
+		return ;
+	tmp = *src;
+	*src = (*src)->next;
+	if (dest == NULL)
+		*dest = tmp;
+	else
 	{
-		top = *stack_a;
-		*stack_a = top->next;
-		top->next = *stack_b;
-		*stack_b = top;
-		ft_putstr("pb\n");
+		tmp->next = *dest;
+		*dest = tmp;
 	}
 }
 
-// pb(): Take the first element at the top of 'a' and put it 
-// at the top of 'b'
-void pa(t_stack **stack_a, t_stack **stack_b) 
+void	pa(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *top;
-	
-    if (*stack_b)
-	{
-		top = *stack_b;
-		*stack_b = top->next;
-		top->next = *stack_a;
-		*stack_a = top;
-		ft_putstr("pa\n");
-	}
+	action_push(stack_b, stack_a);
+	ft_putstr("pa\n");
+}
+
+void	pb(t_stack **stack_a, t_stack **stack_b)
+{
+	action_push(stack_a, stack_b);
+	ft_putstr("pb\n");
 }
