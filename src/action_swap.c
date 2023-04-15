@@ -31,23 +31,24 @@ static void action_swap(t_stack *stack)
 }
 
 // sa() swaps first 2 elements in stack_a.
-void sa(t_data *data)
+void sa(t_stack **stack_a)
 {
-   	action_swap(data->stack_a);
-	printf("sa\n");
+   	action_swap(*stack_a);
+	ft_putstr("sa\n");
 }
 
 // sb() swaps first 2 elements in stack_b.
-void sb(t_data *data)
+void sb(t_stack **stack_b)
 {
-   	action_swap(data->stack_b);
-	printf("sb\n");
+   	action_swap(*stack_b);
+	ft_putstr("sb\n");
 }
 
 // ss(): sa and sb at the same time.
-void ss(t_data *data) 
+void ss(t_stack **stack_a, t_stack **stack_b) 
 {
-    action_swap(data->stack_a);
-    action_swap(data->stack_b);
-	printf("ss\n");
+    action_swap(*stack_a);
+    action_swap(*stack_b);
+	ft_putstr("ss\n");
 }
+
