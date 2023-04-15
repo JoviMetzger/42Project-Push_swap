@@ -14,6 +14,7 @@
 
 // *top is the pointer to the top element of *stack.
 // action_swap(): Swap the first 2 elements at the top of stack. 
+// NOTE: very important to swap the index aswell, otherwise swap won't work.
 static void action_swap(t_stack *stack) 
 {
 	int tmp;
@@ -23,6 +24,9 @@ static void action_swap(t_stack *stack)
 		tmp = stack->content;
 		stack->content = stack->next->content;
 		stack->next->content = tmp;
+		tmp = stack->index;
+		stack->index = stack->next->index;
+		stack->next->index = tmp;
 	}
 }
 
