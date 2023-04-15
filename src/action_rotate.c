@@ -12,65 +12,38 @@
 
 #include "push_swap.h"
 
-// action_rotate_a & ra(): Shift up all elements of stack_a by 1.
+// action_rotate(): Shift up all elements of stack by 1.
 // The first element becomes the last one.
-static void action_rotate_a(t_data *data)
+static void action_rotate(t_stack **stack)
 {
-   t_stack *first;
-   t_stack *last;
-   
-   if (data->stack_a)
-   {
-		first = data->stack_a;
-		last = data->stack_a;
-		
-		while (last->next != NULL)
-		{
-			last = last->next;	
-		}
-		data->stack_a = first->next;
-		first->next = NULL;
-		last->next = first;
-   }
+   t_stack	*tmp;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		return ;
+	tmp = *stack;
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	tmp->next = *stack;
+	*stack = (*stack)->next;
+	tmp->next->next = NULL;
 }
 
-// action_rotate_b() & rb(): Shift up all elements of stack_b by 1.
-// The first element becomes the last one.
-static void action_rotate_b(t_data *data)
+void ra(t_stack **stack_a)
 {
-   t_stack *first;
-   t_stack *last;
-   
-   if (data->stack_b)
-   {
-		first = data->stack_b;
-		last = data->stack_b;
-		
-		while (last->next != NULL)
-		{
-			last = last->next;	
-		}
-		data->stack_b = first->next;
-		first->next = NULL;
-		last->next = first;
-   }
+   	action_rotate(stack_a);
+	ft_putstr("ra\n");
 }
 
-void ra(t_data *data)
+void rb(t_stack **stack_b)
 {
-   	action_rotate_a(data);
-	printf("ra\n");
+   	action_rotate(stack_b);
+	ft_putstr("rb\n");
 }
 
-void rb(t_data *data)
-{
-   	action_rotate_b(data);
-	printf("rb\n");
-}
 // rr(): ra and rb at the same time.
-void rr(t_data *data) 
+void rr(t_stack **stack_a, t_stack **stack_b) 
 {
-    ra(data);
-    rb(data);
-	printf("rr\n");
+    action_rotate(stack_a);
+    action_rotate(stack_b);
+	ft_putstr("rr\n");
 }
