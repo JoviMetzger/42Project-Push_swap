@@ -15,32 +15,32 @@
 // *top is the pointer to the top element of *stack.
 // pa(): Take the first element at the top of 'b' and put it 
 // at the top of 'a'.
-void pb(t_data *data)
+void pb(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack *top;
 	
-    if (data->stack_a)
+    if (*stack_a)
 	{
-		top = data->stack_a;
-		data->stack_a = top->next;
-		top->next = data->stack_b;
-		data->stack_b = top;
-		printf("pb\n");
+		top = *stack_a;
+		*stack_a = top->next;
+		top->next = *stack_b;
+		*stack_b = top;
+		ft_putstr("pb\n");
 	}
 }
 
 // pb(): Take the first element at the top of 'a' and put it 
 // at the top of 'b'
-void pa(t_data *data) 
+void pa(t_stack **stack_a, t_stack **stack_b) 
 {
 	t_stack *top;
 	
-    if (data->stack_b)
+    if (*stack_b)
 	{
-		top = data->stack_b;
-		data->stack_b = top->next;
-		top->next = data->stack_a;
-		data->stack_a = top;
-		printf("pa\n");
+		top = *stack_b;
+		*stack_b = top->next;
+		top->next = *stack_a;
+		*stack_a = top;
+		ft_putstr("pa\n");
 	}
 }
