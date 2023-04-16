@@ -6,14 +6,15 @@
 /*   By: jmetzger <jmetzger@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/03 14:53:42 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/04/03 14:54:20 by jmetzger      ########   odam.nl         */
+/*   Updated: 2023/04/16 14:03:00 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// action_push(): Pushes the top element of src stack to the top of dest stack.
-void	action_push(t_stack **src, t_stack **dest)
+//	action_push(): Pushes the top element of src-stack to the top of dest-stack.
+//	DONE
+static void	action_push(t_stack **src, t_stack **dest)
 {
 	t_stack	*tmp;
 
@@ -30,12 +31,16 @@ void	action_push(t_stack **src, t_stack **dest)
 	}
 }
 
+//	pa(): Pushes the first element from stack_b to stack_a.
+//	DONE
 void	pa(t_stack **stack_a, t_stack **stack_b)
 {
 	action_push(stack_b, stack_a);
 	ft_putstr("pa\n");
 }
 
+//	pb(): Pushes the first element from stack_a to stack_b.
+//	DONE
 void	pb(t_stack **stack_a, t_stack **stack_b)
 {
 	action_push(stack_a, stack_b);
