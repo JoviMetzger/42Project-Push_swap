@@ -13,7 +13,7 @@
 #include "push_swap.h"
 
 //	action_push(): Pushes the top element of src-stack to the top of dest-stack.
-//	DONE
+//
 static void	action_push(t_stack **src, t_stack **dest)
 {
 	t_stack	*tmp;
@@ -32,7 +32,7 @@ static void	action_push(t_stack **src, t_stack **dest)
 }
 
 //	pa(): Pushes the first element from stack_b to stack_a.
-//	DONE
+//
 void	pa(t_stack **stack_a, t_stack **stack_b)
 {
 	action_push(stack_b, stack_a);
@@ -40,7 +40,7 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 }
 
 //	pb(): Pushes the first element from stack_a to stack_b.
-//	DONE
+//
 void	pb(t_stack **stack_a, t_stack **stack_b)
 {
 	action_push(stack_a, stack_b);
