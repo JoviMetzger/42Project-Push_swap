@@ -6,83 +6,86 @@
 /*   By: jmetzger <jmetzger@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/23 11:02:52 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/04/03 16:18:03 by jmetzger      ########   odam.nl         */
+/*   Updated: 2023/04/20 19:16:17 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
+# include <stddef.h>
+# include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-# include <stdlib.h>  //
-# include <string.h>  //
+# include <stdio.h>
 # include "../libft/libft.h"
+
+/*
+*	content:	The number/value of the node.
+*	index:		The index of the node.
+*	pos:		The position of the node.
+*	future_pos:	The future position in stack_a, where the element 
+*				from stack_b should be in stack_a.
+*	cost_b:		The cost of getting the element to the top of the stack_b.
+*	cost_a:		The cost of getting the element to the right position in stack_a.
+*	next:		The pointer to the next node.
+*/
 
 typedef struct s_stack
 {
-	int content;
-	int	index;
+	int				content;
+	int				index;
+	int				pos;
+	int				future_pos;
+	int				cost_a;
+	int				cost_b;
 	struct s_stack	*next;
-} t_stack;
+}	t_stack;
 
 typedef struct s_data
 {
-	t_stack *stack_a;
-	t_stack *stack_b;
-} t_data;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+}	t_data;
 
-void	sa(t_data *data);
-void	sb(t_data *data);
-void	ss(t_data *data);
-void	pb(t_data *data);
-void	pa(t_data *data);
-void	ra(t_data *data);
-void	rb(t_data *data);
-void	rr(t_data *data);
-void	rra(t_data *data);
-void	rrb(t_data *data);
-void	rrr(t_data *data);
+void		pa(t_stack **stack_a, t_stack **stack_b);
+void		pb(t_stack **stack_a, t_stack **stack_b);
+void		sa(t_stack **stack_a);
+void		sb(t_stack **stack_b);
+void		ss(t_stack **stack_a, t_stack **stack_b);
+void		ra(t_stack **stack_a);
+void		rb(t_stack **stack_b);
+void		rr(t_stack **stack_a, t_stack **stack_b);
+void		rrr(t_stack **stack_a, t_stack **stack_b);
+void		rra(t_stack **stack_a);
+void		rrb(t_stack **stack_b);
 
-t_stack *ft_lstnew_a(int value);
-t_stack *ft_lstlast_a(t_stack *lst);
-int		ft_lstsize_a(t_stack *lst);
-void	ft_lstadd_back_a(t_stack **lst, t_stack *new);
+t_stack		*ft_lstlast_a(t_stack *stack);
+t_stack		*get_stack_before_bottom(t_stack *stack);
+t_stack		*ft_lstnew_a(int value);
+void		ft_lstadd_back_a(t_stack **stack, t_stack *new);
+int			ft_lstsize_a(t_stack *lst);
 
-void	ft_error(char *msg);
-void	ft_free(char **str);//
-int		ft_max(t_stack *stack);
-int		ft_min(t_stack *stack);
-int		find_index(t_stack *a, int nbr);
-int		future_index_in_a(t_stack *stack, int current_nbr);
-int		future_index_in_b(t_stack *stack, int current_nbr);
+void		ft_error(char *msg);
+void		ft_free(t_stack **str);
+int			ft_min(t_stack *stack);
+int			ft_max(t_stack *stack);
+int			stack_sorted(t_stack *stack);
 
-void	checking_arg(int argc, char **argv);
-void	fill_stackA(t_data *data, int argc, char **argv);
+void		checking_arg(int argc, char **argv);
 
-int		stack_sorted(t_stack *stack);
-void	sorting(t_data *data);
-void	sorting_stack_A(t_data *data);
-void	sorting_stack_B(t_data *data);
-void	last_stackA_sort(t_data *data);
+void		fill_stack(t_data *data, int argc, char **argv);
+void		indexing(t_stack *stack);
+void		sort_3(t_stack **stack);
+void		sorting(t_data *data, int stack_size);
+void		sorting_a(t_stack **stack_a);
+void		find_future_position(t_stack **stack_a, t_stack **stack_b);
+void		assign_position(t_stack **stack);
+void		get_cost(t_stack **stack_a, t_stack **stack_b);
+void		apply_move(t_stack **stack_a, t_stack **stack_b);
+void		do_rotations(t_stack **a, t_stack **b, int cost_a, int cost_b);
 
-int 	case_one_a(t_data *data, t_stack *current_nbr);
-int 	case_two_a(t_data *data, t_stack *current_nbr);
-int 	case_three_a(t_data *data, t_stack *current_nbr);
-int 	case_four_a(t_data *data, t_stack *current_nbr);
-int 	case_one_b(t_data *data, t_stack *current_nbr);
-int 	case_three_b(t_data *data, t_stack *current_nbr);
-int 	case_two_b(t_data *data, t_stack *current_nbr);
-int 	case_four_b(t_data *data, t_stack *current_nbr);
-
-int 	apply_case_one(t_data *data, int current, int c);
-int 	apply_case_two(t_data *data, int current, int c);
-int 	apply_case_three(t_data *data, int current, int c);
-int 	apply_case_four(t_data *data, int current, int c);
-
-void 	ft_printStacks(t_stack *s); //rm
-void 	printStack(t_stack *s); //rm
-void 	printStacks(t_stack *a, t_stack *b); //rm
+void		printStacks(t_stack *a, t_stack *b);
+void		print_data(t_stack *stack);
 
 #endif
