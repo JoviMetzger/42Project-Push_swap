@@ -12,17 +12,17 @@
 
 #include "push_swap.h"
 
-/*	position_of_LOWindex():
- *		Determines the current position of the element with the lowest index.
- *			- Assigns a position to each element of the stack.
- *			- Identifies the lowest index using the ft_min() function 
- *			  and assigns it to low_index.
- *			- While iterating over the elements in the stack, 
- *			  if the index of the current element equals low_index, 
- *			  it assigns the index and position of that element 
- *			  to its right index and position.
- *			- Otherwise, it moves on to the next element.
- *			- Returns the position of the element with the lowest index.
+/* position_of_LOWindex():
+ *	Determines the current position of the element with the lowest index.
+ *		- Assigns a position to each element of the stack.
+ *		- Identifies the lowest index using the ft_min() function 
+ *		  and assigns it to low_index.
+ *		- While iterating over the elements in the stack, 
+ *		  if the index of the current element equals low_index, 
+ *		  it assigns the index and position of that element 
+ *		  to its right index and position.
+ *		- Otherwise, it moves on to the next element.
+ *		- Returns the position of the element with the lowest index.
  */
 static int	position_of_low_index(t_stack **stack_a)
 {
@@ -46,12 +46,12 @@ static int	position_of_low_index(t_stack **stack_a)
 	return (low_pos);
 }
 
-/*	sorting_A():
-*		Once the majority of the stack is sorted, it rotates stack_a until the lowest
-*		element/index is at the top. 
-*			- If lowest_pos is bigger than half of the size, it is in 
-*			  the bottom half of the stack, so it rra(). 
-*			- Else, it ra() until it is at the top of the stack.
+/* sorting_A():
+*	Once the majority of the stack is sorted, it rotates stack_a until the lowest
+*	element/index is at the top. 
+*		- If lowest_pos is bigger than half of the size, it is in 
+*		  the bottom half of the stack, so it rra(). 
+*		- Else, it ra() until it is at the top of the stack.
 */
 void	sorting_a(t_stack **stack_a)
 {
