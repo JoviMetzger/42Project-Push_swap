@@ -21,14 +21,14 @@
 # include "../libft/libft.h"
 
 /*
-*	content:	The number/value of the node.
-*	index:		The index of the node.
-*	pos:		The position of the node.
-*	future_pos:	The future position in stack_a, where the element 
-*				from stack_b should be in stack_a.
-*	cost_b:		The cost of getting the element to the top of the stack_b.
-*	cost_a:		The cost of getting the element to the right position in stack_a.
-*	next:		The pointer to the next node.
+* content:	The number/value of the node.
+* index:	The index of the node.
+* pos:		The position of the node.
+* future_pos:	The future position in stack_a, where the element 
+* 		from stack_b should be in stack_a.
+* cost_b:	The cost of getting the element to the top of the stack_b.
+* cost_a:	The cost of getting the element to the right position in stack_a.
+* next:		The pointer to the next node.
 */
 
 typedef struct s_stack
