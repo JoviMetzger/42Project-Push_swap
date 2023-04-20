@@ -6,7 +6,7 @@
 /*   By: jmetzger <jmetzger@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/23 11:07:56 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/04/03 16:15:48 by jmetzger      ########   odam.nl         */
+/*   Updated: 2023/04/20 19:43:41 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,106 +21,49 @@ void ft_systemleaks(void)
 //  - atexit(ft_systemleaks); // USE FOR LEAKS
 //____________________________________________
 
-//
-void indexing(t_stack *stack)
+/*	main(): 
+*		Checks if the input is correct, 
+*		in which case it initializes stack a and b, 
+*		assigns each value indexes and sorts the stacks.
+*/
+int	main(int argc, char **argv)
 {
-    t_stack  *top;
-    t_stack  *min;
-    int     index;
-
-    index = 1; //could be 0 aswell;
-    while (stack)
-    {
-        top = stack;
-        min = NULL;
-        while (top)
-        {
-            if ((top->index == -1) && (!min || top->content < min->content))
-            {
-                min = top;
-            }
-            top = top->next;
-        }
-        if (min)
-        {
-            min->index = index++;
-        }
-        else
-        {
-            break;
-        }
-    }
-    //print_stack_with_index(stack); //rm
-}
-//
-void	fill_stackA(t_data *data, int argc, char **argv)
-{
-	t_stack	*new;
-	char	**array;
-	int		i;
-
-	i = 0;
-	if (argc == 2)
-		array = ft_split(argv[1], ' ');
-	else
-	{
-		i = 1;
-		array = argv;
-	}
-	while (array[i])
-	{
-		new = ft_lstnew_a(ft_atoi(array[i]));
-		ft_lstadd_back_a(&data->stack_a, new);
-		i++;
-	}
-	if (ft_lstsize_a(data->stack_a) == 1)
-		ft_error("Error, input only consists of one number");
-}
-
-//
-void sorting(t_data *data)
-{
-	if (ft_lstsize_a(data->stack_a) <= 3)
-		sort_3(data);
-	else
-	{
-    	sorting_stack_A(data);
-    	sorting_stack_B(data);
-	}
-}
-
-//
-int main(int argc, char **argv)
-{
-	//atexit(ft_systemleaks); // USE FOR LEAKS
 	t_data *data;
-		
+	int		stack_size;
+
 	if (argc >= 2)
- 	{
+	{
+		//atexit(ft_systemleaks); // USE FOR LEAKS
 		checking_arg(argc, argv);
-		data = (t_data *)malloc(sizeof(t_data));
+		data = (t_data *)ft_calloc(sizeof(t_data), 1);
 		data->stack_a = NULL;
 		data->stack_b = NULL;
-		fill_stackA(data, argc, argv);
+		fill_stack(data, argc, argv);
+		stack_size = ft_lstsize_a(data->stack_a);
 		if (stack_sorted(data->stack_a))
- 		 	ft_error("Error, arguments A are already sorted");
+		 	ft_error("Error, arguments are already sorted");
 		indexing(data->stack_a);
-		sorting(data);
-		//printStacks(data->stack_a, data->stack_b); //rm
+		sorting(data, stack_size);
+		// printStacksData(data->stack_a, data->stack_b); //rm
+		// printStacks(data->stack_a, data->stack_b); //rm
+		ft_free(&data->stack_a);
+		ft_free(&data->stack_b);
 	}
 	else
 		ft_error("Error, you don't have the correct argument count");
 	return (0);
 }
 
-// -----------------------------------------------------------------------------------------------------
-// -----------------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------
+//							--- PRINT_FUNCTIONS: ---
 
-void printStack(t_stack *s)
+//	----- 1. Function, prints the node of stack_a and stack_b. -----
+//	1.2. printStack().
+void printStack(t_stack *stack)
 {
 	t_stack *tmp;
-	
-	tmp = s;
+
+	tmp = stack;
     while (tmp != NULL)
 	{
 		printf("node; %d\n", tmp->content);
@@ -128,14 +71,19 @@ void printStack(t_stack *s)
 	}
 }
 
-void printStacks(t_stack *a, t_stack *b) {
+//	1.1. printStacks().
+void printStacks(t_stack *stack_a, t_stack *stack_b) 
+{
     printf("Stack a:\n");
-    printStack(a);
+    printStack(stack_a);
     printf("Stack b:\n");
-    printStack(b);
+    printStack(stack_b);
 }
 
-void print_stack(t_stack *stack) {
+//	---- 2. Function, prints all the infomation about the given stack. ----
+//	2.2. printData().
+void printData(t_stack *stack) 
+{
     int index = 0;
     while (stack) {
 		 printf("Content: %d || Index: %d || Position: %d || Pointer: %p\n", 
@@ -144,9 +92,11 @@ void print_stack(t_stack *stack) {
         index++;
     }
 }
-void print_data(t_data *data) {
+//	2.1. printStacksData().
+void printStacksData(t_stack *stack_a, t_stack *stack_b) 
+{
     printf("Stack A:\n");
-    print_stack(data->stack_a);
+    printData(stack_a);
     printf("Stack B:\n");
-    print_stack(data->stack_b);
+    printData(stack_b);
 }
