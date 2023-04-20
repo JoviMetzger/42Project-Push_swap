@@ -21,10 +21,10 @@ void ft_systemleaks(void)
 //  - atexit(ft_systemleaks); // USE FOR LEAKS
 //____________________________________________
 
-/*	main(): 
-*		Checks if the input is correct, 
-*		in which case it initializes stack a and b, 
-*		assigns each value indexes and sorts the stacks.
+/* main(): 
+*	Checks if the input is correct, 
+*	in which case it initializes stack a and b, 
+*	assigns each value indexes and sorts the stacks.
 */
 int	main(int argc, char **argv)
 {
@@ -55,10 +55,10 @@ int	main(int argc, char **argv)
 }
 
 // -----------------------------------------------------------------------
-//							--- PRINT_FUNCTIONS: ---
+//	        	--- PRINT_FUNCTIONS: ---
 
 //	----- 1. Function, prints the node of stack_a and stack_b. -----
-//	1.2. printStack().
+// 1.2. printStack().
 void printStack(t_stack *stack)
 {
 	t_stack *tmp;
@@ -71,7 +71,7 @@ void printStack(t_stack *stack)
 	}
 }
 
-//	1.1. printStacks().
+// 1.1. printStacks().
 void printStacks(t_stack *stack_a, t_stack *stack_b) 
 {
     printf("Stack a:\n");
@@ -81,7 +81,7 @@ void printStacks(t_stack *stack_a, t_stack *stack_b)
 }
 
 //	---- 2. Function, prints all the infomation about the given stack. ----
-//	2.2. printData().
+// 2.2. printData().
 void printData(t_stack *stack) 
 {
     int index = 0;
@@ -92,7 +92,7 @@ void printData(t_stack *stack)
         index++;
     }
 }
-//	2.1. printStacksData().
+// 2.1. printStacksData().
 void printStacksData(t_stack *stack_a, t_stack *stack_b) 
 {
     printf("Stack A:\n");
