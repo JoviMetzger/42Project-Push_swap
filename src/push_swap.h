@@ -85,7 +85,7 @@ void		get_cost(t_stack **stack_a, t_stack **stack_b);
 void		apply_move(t_stack **stack_a, t_stack **stack_b);
 void		do_rotations(t_stack **a, t_stack **b, int cost_a, int cost_b);
 
-void		printStacks(t_stack *a, t_stack *b);
-void		print_data(t_stack *stack);
+void		printStacks(t_stack *stack_a, t_stack *stack_b);
+void		printStacksData(t_stack *stack_a, t_stack *stack_b);
 
 #endif
