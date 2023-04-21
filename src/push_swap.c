@@ -18,7 +18,6 @@ void ft_systemleaks(void)
 {
     system("leaks -q push_swap"); //remove
 }
-//  - atexit(ft_systemleaks); // USE FOR LEAKS
 //____________________________________________
 
 /* main(): 
@@ -44,8 +43,8 @@ int	main(int argc, char **argv)
 		 	ft_error("Error, arguments are already sorted");
 		indexing(data->stack_a);
 		sorting(data, stack_size);
-		// printStacksData(data->stack_a, data->stack_b); //rm
-		// printStacks(data->stack_a, data->stack_b); //rm
+		// printStacksData(data->stack_a, data->stack_b); // USE FOR PRINTING ALL THE INFORMATION IN A STACK
+		// printStacks(data->stack_a, data->stack_b); // USE FOR PRINING STACK VALUES
 		ft_free(&data->stack_a);
 		ft_free(&data->stack_b);
 	}
@@ -56,8 +55,10 @@ int	main(int argc, char **argv)
 
 // -----------------------------------------------------------------------
 //	        	--- PRINT_FUNCTIONS: ---
-
+//
+//
 //	----- 1. Function, prints the node of stack_a and stack_b. -----
+//
 // 1.2. printStack().
 void printStack(t_stack *stack)
 {
@@ -81,6 +82,7 @@ void printStacks(t_stack *stack_a, t_stack *stack_b)
 }
 
 //	---- 2. Function, prints all the infomation about the given stack. ----
+//
 // 2.2. printData().
 void printData(t_stack *stack) 
 {
@@ -92,6 +94,7 @@ void printData(t_stack *stack)
         index++;
     }
 }
+
 // 2.1. printStacksData().
 void printStacksData(t_stack *stack_a, t_stack *stack_b) 
 {
