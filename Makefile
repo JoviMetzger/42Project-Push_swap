@@ -1,67 +1,95 @@
-# NOTES
-# $(wildcard): is a function that searches for files that match a certain pattern, and returns a list of those files.
-# $(patsubst): is a function that takes a list of words, and replaces a specific pattern in each word with another pattern.
-# - The syntax is $(patsubst pattern,replacement,text)
-#		- "pattern" is a pattern that we want to match. ($(SRCDIR)/%.c) = all .c
-#		- "replacement" is the pattern that we want to replace the matched pattern with. ($(OBJDIR)/%.o) = all .o
-#		- "text" is the list of words that we want to apply the pattern substitution to. ($(SRC)) = all those files
-
 # Executable
-NAME	= push_swap
+NAME		= push_swap
+BONUS		= checker
 
 # Libraries
-LIBFT	= ./libft/libft.a
+LIBFT		= ./libft/libft.a
 
 # Compiler and flags
-CC		= gcc
-CFLAGS	= -Wall -Werror -Wextra
+CC			= gcc
+CFLAGS		= -Wall -Werror -Wextra -g
 
-# Sources and objects
-SRC		= $(wildcard $(SRCDIR)/*.c) 
-OBJ		= $(patsubst $(SRCDIR)/%.c,$(OBJDIR)/%.o,$(SRC))
+# Sources files
+SRC	= ./src/action_push.c \
+				./src/action_reverse.c \
+				./src/action_rotate.c \
+				./src/action_swap.c \
+				./src/apply_move.c \
+				./src/calculate_cost.c \
+				./src/checks.c \
+				./src/do_rotations.c \
+				./src/fill_stack.c \
+				./src/find_position.c \
+				./src/indexing.c \
+				./src/push_swap.c \
+				./src/sort_3.c \
+				./src/sorting_a.c \
+				./src/sorting_b.c \
+				./src/t_list.c \
+				./src/utils.c
 
-# Directories
-OBJDIR 	= ./obj
-SRCDIR 	= ./src
+BONUS_SRC	= ./bonus/action_push.c \
+				./bonus/action_reverse.c \
+				./bonus/action_rotate.c \
+				./bonus/action_swap.c \
+				./bonus/check_arg.c \
+				./bonus/checker.c \
+				./bonus/fill_stack.c \
+				./bonus/t_list.c \
+				./bonus/utils.c
+
+# Objects files
+OBJ			= $(addprefix $(OBJDIR)/, $(notdir $(SRC:.c=.o)))
+BONUS_OBJ	= $(addprefix $(OBJDIR)/, $(notdir $(BONUS_SRC:.c=.o)))
+
+# Object Directory
+OBJDIR 		= obj
 
 # Colors
-BOLD	= \033[1m
-BLACK	= \033[30;1m
-RED		= \033[31;1m
-GREEN	= \033[32;1m
-YELLOW	= \033[33;1m
-BLUE	= \033[34;1m
-MAGENTA	= \033[35;1m
-CYAN	= \033[36;1m
-WHITE	= \033[37;1m
-RESET	= \033[0m
+BOLD		= \033[1m
+ITALIC		= \033[3m
+UNDER 		= \033[4m
+GREEN		= \033[32;1m
+INDIGO		= \033[38;2;75;0;130m
+CORAL		= \033[38;2;255;127;80m
+RESET		= \033[0m
 
 # Targets
 all:	$(NAME)
 
+bonus:	$(BONUS)
+
 $(NAME): $(LIBFT) $(OBJ)
 		$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
-		@echo "$(MAGENTA) $(BOLD)✨Compilation Done✨$(RESET)"
+		@echo "$(INDIGO) $(UNDER) $(BOLD) $(ITALIC) ✨Compilation Done✨   $(RESET)"
+
+$(BONUS): $(LIBFT) $(BONUS_OBJ)
+		@$(CC) $(CFLAGS) $(BONUS_OBJ) $(LIBFT) -o $(BONUS)
+		@echo "$(CORAL) $(UNDER) $(BOLD) $(ITALIC) ✨BONUS Compilation Done✨   $(RESET)"
 
 $(LIBFT): 
 		@$(MAKE) -C ./libft
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.c
+$(OBJDIR)/%.o: ./src/%.c
 		@mkdir -p $(OBJDIR)
-		$(CC) $(CFLAGS) -c $< -o $@
+		$(CC) $(CFLAGS) -c -o $@ $^
+
+$(OBJDIR)/%.o: ./bonus/%.c
+		@mkdir -p $(OBJDIR)
+		$(CC) $(CFLAGS) -c -o $@ $^
 
 # Clean
 clean:
 		@$(MAKE) clean -C ./libft
 		@rm -rf $(OBJDIR)
-		@echo "$(GREEN)✅ Done ✅$(RESET)"
+		@echo "$(GREEN) $(ITALIC) ✅ Done ✅$(RESET)"
 
-fclean:
+fclean: clean
 		@$(MAKE) fclean -C ./libft
-		@rm -rf $(OBJDIR)
 		@rm -f $(NAME)
-		@echo "$(GREEN)✅ Done ✅$(RESET)"
+		@rm -f $(BONUS)
+		@echo "$(GREEN) $(ITALIC) ✅ Done ✅$(RESET)"
 
 re:		fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bouns
