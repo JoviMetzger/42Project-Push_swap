@@ -3,14 +3,14 @@
 /*                                                        ::::::::            */
 /*   action_reverse.c                                   :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jmetzger <jmetzger@student.codam.nl>         +#+                     */
+/*   By: jmetzger <jmetzger@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/04/03 14:54:57 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/04/21 14:53:56 by jmetzger      ########   odam.nl         */
+/*   Created: 2023/04/22 12:52:48 by jmetzger      #+#    #+#                 */
+/*   Updated: 2023/04/22 16:01:26 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 /* action_reverse(): 
 *	Shift down all elements of the stack by 1.
@@ -40,7 +40,6 @@ static void	action_reverse(t_stack **stack)
 void	rra(t_stack **stack_a)
 {
 	action_reverse(stack_a);
-	ft_putstr("rra\n");
 }
 
 /* rrb(): 
@@ -49,7 +48,6 @@ void	rra(t_stack **stack_a)
 void	rrb(t_stack **stack_b)
 {
 	action_reverse(stack_b);
-	ft_putstr("rrb\n");
 }
 
 /* rrr(): 
@@ -59,5 +57,4 @@ void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	action_reverse(stack_a);
 	action_reverse(stack_b);
-	ft_putstr("rrr\n");
 }

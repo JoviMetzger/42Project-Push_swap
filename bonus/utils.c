@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   swap_utils.c                                       :+:    :+:            */
+/*   utils.c                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jmetzger <jmetzger@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/03/05 15:16:42 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/03/06 10:55:53 by jmetzger      ########   odam.nl         */
+/*   Created: 2023/04/22 13:01:47 by jmetzger      #+#    #+#                 */
+/*   Updated: 2023/04/22 15:56:39 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-void ft_error(char *msg)
+/* ft_error(): 
+*	Displays the given error message to the standard output and exits the program.
+*/
+void	ft_error(char *msg)
 {
-    ft_putstr(msg);
-    ft_putchar('\n');
-    exit(0); 
+	ft_putstr(msg);
+	ft_putchar('\n');
+	exit(1);
 }
 
-void    ft_free(char **str)
+/* stack_sorted(): 
+*	Checks if the given stack is sorted.
+*/
+int	stack_sorted(t_stack *stack)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (str[i] != 0)
+	while (stack && stack->next)
 	{
-		free(str[i]);
-		i++;
+		if (stack->content > stack->next->content)
+			return (0);
+		stack = stack->next;
 	}
-	free(str);
+	return (1);
 }

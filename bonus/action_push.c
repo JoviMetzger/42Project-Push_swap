@@ -3,14 +3,14 @@
 /*                                                        ::::::::            */
 /*   action_push.c                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jmetzger <jmetzger@student.codam.nl>         +#+                     */
+/*   By: jmetzger <jmetzger@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/04/03 14:53:42 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/04/21 14:53:35 by jmetzger      ########   odam.nl         */
+/*   Created: 2023/04/22 12:52:20 by jmetzger      #+#    #+#                 */
+/*   Updated: 2023/04/22 16:00:12 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 /* action_push(): 
 *	Pushes the top element of src-stack to the top of dest-stack.
@@ -38,7 +38,6 @@ static void	action_push(t_stack **src, t_stack **dest)
 void	pa(t_stack **stack_a, t_stack **stack_b)
 {
 	action_push(stack_b, stack_a);
-	ft_putstr("pa\n");
 }
 
 /* pb(): 
@@ -47,5 +46,4 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 void	pb(t_stack **stack_a, t_stack **stack_b)
 {
 	action_push(stack_a, stack_b);
-	ft_putstr("pb\n");
 }

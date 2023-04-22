@@ -3,14 +3,14 @@
 /*                                                        ::::::::            */
 /*   action_swap.c                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jmetzger <jmetzger@student.codam.nl>         +#+                     */
+/*   By: jmetzger <jmetzger@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/04/03 14:56:02 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/04/21 14:54:34 by jmetzger      ########   odam.nl         */
+/*   Created: 2023/04/22 12:53:32 by jmetzger      #+#    #+#                 */
+/*   Updated: 2023/04/22 16:02:19 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 /* action_swap(): 
 *	Swap the first 2 elements at the top of the giving stack. 
@@ -37,7 +37,6 @@ static void	action_swap(t_stack *stack)
 void	sa(t_stack **stack_a)
 {
 	action_swap(*stack_a);
-	ft_putstr("sa\n");
 }
 
 /* sb(): 
@@ -46,7 +45,6 @@ void	sa(t_stack **stack_a)
 void	sb(t_stack **stack_b)
 {
 	action_swap(*stack_b);
-	ft_putstr("sb\n");
 }
 
 /* ss(): 
@@ -56,5 +54,4 @@ void	ss(t_stack **stack_a, t_stack **stack_b)
 {
 	action_swap(*stack_a);
 	action_swap(*stack_b);
-	ft_putstr("ss\n");
 }

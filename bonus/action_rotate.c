@@ -3,14 +3,14 @@
 /*                                                        ::::::::            */
 /*   action_rotate.c                                    :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jmetzger <jmetzger@student.codam.nl>         +#+                     */
+/*   By: jmetzger <jmetzger@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/04/03 14:55:29 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/04/21 14:54:15 by jmetzger      ########   odam.nl         */
+/*   Created: 2023/04/22 12:53:10 by jmetzger      #+#    #+#                 */
+/*   Updated: 2023/04/22 16:01:51 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 /* action_rotate(): 
 *	Shift up all elements of the stack by 1.
@@ -36,7 +36,6 @@ static void	action_rotate(t_stack **stack)
 void	ra(t_stack **stack_a)
 {
 	action_rotate(stack_a);
-	ft_putstr("ra\n");
 }
 
 /* rb(): 
@@ -45,7 +44,6 @@ void	ra(t_stack **stack_a)
 void	rb(t_stack **stack_b)
 {
 	action_rotate(stack_b);
-	ft_putstr("rb\n");
 }
 
 /* rr(): 
@@ -55,5 +53,4 @@ void	rr(t_stack **stack_a, t_stack **stack_b)
 {
 	action_rotate(stack_a);
 	action_rotate(stack_b);
-	ft_putstr("rr\n");
 }

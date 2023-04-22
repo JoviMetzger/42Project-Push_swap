@@ -3,14 +3,14 @@
 /*                                                        ::::::::            */
 /*   t_list.c                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jmetzger <jmetzger@student.codam.nl>         +#+                     */
+/*   By: jmetzger <jmetzger@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/03/20 22:28:19 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/04/22 20:35:13 by jmetzger      ########   odam.nl         */
+/*   Created: 2023/04/22 14:57:42 by jmetzger      #+#    #+#                 */
+/*   Updated: 2023/04/22 20:50:28 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 /* ft_lstlast_a(): 
 *	Returns the last element/node of the stack.
@@ -31,8 +31,6 @@ t_stack	*ft_lstlast_a(t_stack *stack)
 
 /* ft_lstnew_a(): 
 *	Creates a new element/node inside a stack with the provided value.
-*	NOTE: for push_swap I needed to set index, pos, furure_pos, 
-*		  cost_a, cost_b for this given value to '-1'
 */
 t_stack	*ft_lstnew_a(int value)
 {
@@ -43,10 +41,10 @@ t_stack	*ft_lstnew_a(int value)
 		return (NULL);
 	new->content = value;
 	new->index = -1;
-	// new->pos = -1;
-	// new->future_pos = -1;
-	// new->cost_a = -1;
-	// new->cost_b = -1;
+	new->pos = -1;
+	new->future_pos = -1;
+	new->cost_a = -1;
+	new->cost_b = -1;
 	new->next = NULL;
 	return (new);
 }

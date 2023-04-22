@@ -6,7 +6,7 @@
 /*   By: jmetzger <jmetzger@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/06 13:15:22 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/03/07 17:27:13 by jmetzger      ########   odam.nl         */
+/*   Updated: 2023/04/21 13:37:51 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ int	ft_atoi(const char *str)
 	}
 	end = result * sign;
 	if (end > INT_MAX || end < INT_MIN)
-		write(1, "Error\n", 4);
+		ft_error("Error");
 	return (result * sign);
 }
