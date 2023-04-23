@@ -6,7 +6,7 @@
 /*   By: jmetzger <jmetzger@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/05 15:16:42 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/04/21 17:21:56 by jmetzger      ########   odam.nl         */
+/*   Updated: 2023/04/23 14:30:10 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_error(char *msg)
 {
 	ft_putstr(msg);
 	ft_putchar('\n');
-	exit(1);
+	exit(EXIT_FAILURE);
 }
 
 /* stack_sorted(): 
