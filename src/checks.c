@@ -6,7 +6,7 @@
 /*   By: jmetzger <jmetzger@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/03 11:46:25 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/04/21 17:10:36 by jmetzger      ########   odam.nl         */
+/*   Updated: 2023/04/23 14:30:31 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,6 @@ void	checking_arg(int argc, char **argv)
 		ft_double_num(array);
 		i++;
 	}
+	if (argc == 2)
+		ft_free_array(array);
 }
