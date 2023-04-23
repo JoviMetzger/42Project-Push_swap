@@ -24,8 +24,8 @@
 * content	:	The number/value of the node.
 * index		:	The index of the node.
 * pos		:	The position of the node.
-* future_pos:	The future position in stack_a, where the element 
-*				from stack_b should be in stack_a.
+* future_pos	:	The future position in stack_a, where the element 
+*			from stack_b should be in stack_a.
 * cost_b	:	The cost of getting the element to the top of the stack_b.
 * cost_a	:	The cost of getting the element to the right position in stack_a.
 * next		:	The pointer to the next node.
@@ -64,13 +64,14 @@ t_stack		*ft_lstlast_a(t_stack *stack);
 t_stack		*get_stack_before_bottom(t_stack *stack);
 t_stack		*ft_lstnew_a(int value);
 void		ft_lstadd_back_a(t_stack **stack, t_stack *new);
-int			ft_lstsize_a(t_stack *lst);
+int		ft_lstsize_a(t_stack *lst);
 
 void		ft_error(char *msg);
 void		ft_free(t_stack **str);
-int			ft_min(t_stack *stack);
-int			ft_max(t_stack *stack);
-int			stack_sorted(t_stack *stack);
+char		**ft_free_array(char **s);
+int		ft_min(t_stack *stack);
+int		ft_max(t_stack *stack);
+int		stack_sorted(t_stack *stack);
 
 void		checking_arg(int argc, char **argv);
 
