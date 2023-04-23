@@ -6,7 +6,7 @@
 /*   By: jmetzger <jmetzger@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/15 14:39:00 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/04/21 17:13:20 by jmetzger      ########   odam.nl         */
+/*   Updated: 2023/04/23 14:31:32 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,24 @@ void	fill_stack(t_data *data, int argc, char **argv)
 		i++;
 	}
 	if (ft_lstsize_a(data->stack_a) == 1)
-		ft_error("Error");
+		exit(EXIT_FAILURE);
+	if (argc == 2)
+		ft_free_array(array);
+}
+
+/* ft_free_array(): 
+*	Frees each element a 2D array (**array).
+*/
+char	**ft_free_array(char **s)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (s[i] != NULL)
+	{
+		free(s[i]);
+		i++;
+	}
+	free(s);
+	return (NULL);
 }
