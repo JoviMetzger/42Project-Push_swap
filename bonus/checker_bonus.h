@@ -22,7 +22,7 @@
 
 typedef struct s_stack
 {
-	int				content;
+	int		content;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -48,12 +48,12 @@ t_stack		*ft_lstlast_a(t_stack *stack);
 t_stack		*get_stack_before_bottom(t_stack *stack);
 t_stack		*ft_lstnew_a(int value);
 void		ft_lstadd_back_a(t_stack **stack, t_stack *new);
-int			ft_lstsize_a(t_stack *lst);
+int		ft_lstsize_a(t_stack *lst);
 
 void		ft_error(char *msg);
 void		ft_free(t_stack **str);
 char		**ft_free_array(char **s);
-int			stack_sorted(t_stack *stack);
+int		stack_sorted(t_stack *stack);
 
 void		checking_arg(int argc, char **argv);
 void		fill_stack(t_data *data, int argc, char **argv);
