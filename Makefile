@@ -6,11 +6,12 @@ BONUS		= checker
 LIBFT		= ./libft/libft.a
 
 # Compiler and flags
-CC			= gcc
+CC		= gcc
 CFLAGS		= -Wall -Werror -Wextra -g
 
+
 # Sources files
-SRC	= ./src/action_push.c \
+SRC		= ./src/action_push.c \
 				./src/action_reverse.c \
 				./src/action_rotate.c \
 				./src/action_swap.c \
@@ -28,19 +29,18 @@ SRC	= ./src/action_push.c \
 				./src/t_list.c \
 				./src/utils.c
 
-BONUS_SRC	= ./bonus/action_push.c \
-				./bonus/action_reverse.c \
-				./bonus/action_rotate.c \
-				./bonus/action_swap.c \
-				./bonus/check_arg.c \
-				./bonus/indexing.c \
-				./bonus/checker.c \
-				./bonus/fill_stack.c \
-				./bonus/t_list.c \
-				./bonus/utils.c
+BONUS_SRC	= ./bonus/action_push_bonus.c \
+				./bonus/action_reverse_bonus.c \
+				./bonus/action_rotate_bonus.c \
+				./bonus/action_swap_bonus.c \
+				./bonus/check_arg_bonus.c \
+				./bonus/checker_bonus.c \
+				./bonus/fill_stack_bonus.c \
+				./bonus/t_list_bonus.c \
+				./bonus/utils_bonus.c
 
 # Objects files
-OBJ			= $(addprefix $(OBJDIR)/, $(notdir $(SRC:.c=.o)))
+OBJ		= $(addprefix $(OBJDIR)/, $(notdir $(SRC:.c=.o)))
 BONUS_OBJ	= $(addprefix $(OBJDIR)/, $(notdir $(BONUS_SRC:.c=.o)))
 
 # Object Directory
@@ -56,9 +56,9 @@ CORAL		= \033[38;2;255;127;80m
 RESET		= \033[0m
 
 # Targets
-all:	$(NAME)
+all:		$(NAME)
 
-bonus:	$(BONUS)
+bonus:		$(BONUS)
 
 $(NAME): $(LIBFT) $(OBJ)
 		$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
