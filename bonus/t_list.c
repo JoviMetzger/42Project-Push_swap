@@ -41,10 +41,6 @@ t_stack	*ft_lstnew_a(int value)
 		return (NULL);
 	new->content = value;
 	new->index = -1;
-	new->pos = -1;
-	new->future_pos = -1;
-	new->cost_a = -1;
-	new->cost_b = -1;
 	new->next = NULL;
 	return (new);
 }
