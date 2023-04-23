@@ -6,7 +6,7 @@
 /*   By: jmetzger <jmetzger@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/20 22:28:19 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/04/22 20:35:13 by jmetzger      ########   odam.nl         */
+/*   Updated: 2023/04/23 14:22:13 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ t_stack	*ft_lstnew_a(int value)
 		return (NULL);
 	new->content = value;
 	new->index = -1;
-	// new->pos = -1;
-	// new->future_pos = -1;
-	// new->cost_a = -1;
-	// new->cost_b = -1;
+	new->pos = -1;
+	new->future_pos = -1;
+	new->cost_a = -1;
+	new->cost_b = -1;
 	new->next = NULL;
 	return (new);
 }
