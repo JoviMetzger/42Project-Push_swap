@@ -24,10 +24,6 @@ typedef struct s_stack
 {
 	int				content;
 	int				index;
-	int				pos;
-	int				future_pos;
-	int				cost_a;
-	int				cost_b;
 	struct s_stack	*next;
 }	t_stack;
 
