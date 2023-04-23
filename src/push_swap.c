@@ -6,19 +6,17 @@
 /*   By: jmetzger <jmetzger@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/23 11:07:56 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/04/21 19:47:14 by jmetzger      ########   odam.nl         */
+/*   Updated: 2023/04/23 14:33:33 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//___________________________________________
-// FOR LEAKS
+//________________ FOR LEAKS _________________
 void	ft_systemleaks(void)
 {
 	system("leaks -q push_swap"); //remove
 }
-//  - atexit(ft_systemleaks); // USE FOR LEAKS
 //____________________________________________
 
 /* main(): 
@@ -28,6 +26,7 @@ void	ft_systemleaks(void)
 */
 int	main(int argc, char **argv)
 {
+	// atexit(ft_systemleaks); // USE FOR LEAKS
 	t_data	*data;
 	int		stack_size;
 
@@ -40,19 +39,21 @@ int	main(int argc, char **argv)
 		fill_stack(data, argc, argv);
 		stack_size = ft_lstsize_a(data->stack_a);
 		if (stack_sorted(data->stack_a))
-			ft_error("Error");
+			exit(EXIT_FAILURE);
 		indexing(data->stack_a);
 		sorting(data, stack_size);
+		// printStacksData(data->stack_a, data->stack_b); // PRINTS ALL INFORMATION IN A STACK 
+		// printStacks(data->stack_a, data->stack_b);	 // PRINTS ONLY THE NUMBERS IN A STACK
 		ft_free(&data->stack_a);
 		ft_free(&data->stack_b);
 	}
 	else
 		return (0);
-	return (0);
+	exit(EXIT_SUCCESS);
 }
 
-// -----------------------------------------------------------------------
-//							--- PRINT_FUNCTIONS: ---
+// ______________________________________________________________________________
+//			--- PRINT_FUNCTIONS: ---
 //
 //	----- 1. Function, prints the node of stack_a and stack_b. -----
 //
@@ -72,9 +73,9 @@ void	printStack(t_stack *stack)
 // 1.1. printStacks().
 void	printStacks(t_stack *stack_a, t_stack *stack_b)
 {
-	printf("Stack a:\n");
+	printf("Stack A:\n");
 	printStack(stack_a);
-	printf("Stack b:\n");
+	printf("Stack B:\n");
 	printStack(stack_b);
 }
 
