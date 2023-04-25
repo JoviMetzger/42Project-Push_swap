@@ -6,7 +6,7 @@
 /*   By: jmetzger <jmetzger@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/03 11:46:25 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/04/23 18:08:50 by jmetzger      ########   odam.nl         */
+/*   Updated: 2023/04/25 13:12:43 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,29 @@ static void	ft_is_num(char *num)
 	}
 }
 
+/* ft_plus_minus(): 
+*	Checks if after a '-' or '+' comes a number
+*	otherwise, input is invalid.
+*/
+static void	ft_plus_minus(char *array)
+{
+	int	i;
+
+	i = 0;
+	if (array[0] == '-' || array[0] == '+')
+	{
+		if (array[1] != '0' && array[1] != '1'
+			&& array[1] != '2' && array[1] != '3'
+			&& array[1] != '4' && array[1] != '5'
+			&& array[1] != '6' && array[1] != '7'
+			&& array[1] != '8' && array[1] != '9')
+		{	
+			ft_error("Error");
+		}
+	}
+	i++;
+}
+
 /* checking_arg(): 
 *	Converts a string input into an array and checks if the 
 *	given input is valid.
@@ -38,11 +61,11 @@ static void	ft_is_num(char *num)
 *		  the ft_split() function.
 *		- Then, it converts each character in the array into an 
 *		  integer using the ft_atoi() function.
-*		- After that, it checks if the input contains only numerical values. 
+*		- After that, it checks if the input is valid. 
 */
 void	checking_arg(int argc, char **argv)
 {
-	int		i;
+	int	i;
 	char	**array;
 
 	i = 0;
@@ -57,6 +80,7 @@ void	checking_arg(int argc, char **argv)
 	{
 		ft_atoi(array[i]);
 		ft_is_num(array[i]);
+		ft_plus_minus(array[i]);
 		i++;
 	}
 	if (argc == 2)
