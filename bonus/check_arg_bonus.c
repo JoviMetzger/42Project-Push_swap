@@ -6,7 +6,7 @@
 /*   By: jmetzger <jmetzger@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/22 12:54:07 by jmetzger      #+#    #+#                 */
-/*   Updated: 2023/04/25 13:14:03 by jmetzger      ########   odam.nl         */
+/*   Updated: 2023/04/26 12:14:18 by jmetzger      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,26 @@ static void	ft_plus_minus(char *array)
 	i++;
 }
 
+/* ft_empty():
+*	Checks if the input array has an empty string.
+*		- If the the lenght of the array[i] is 0,
+*		  the array[i] is empty.
+*/
+void	ft_empty(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i])
+	{
+		if (ft_strlen(array[i]) == 0)
+		{
+			ft_error("Error");
+		}
+		i++;
+	}
+}
+
 /* checking_arg(): 
 *	Converts a string input into an array and checks if the 
 *	given input is valid.
@@ -65,10 +85,11 @@ static void	ft_plus_minus(char *array)
 */
 void	checking_arg(int argc, char **argv)
 {
-	int		i;
+	int	i;
 	char	**array;
 
 	i = 0;
+	ft_empty(argv);
 	if (argc == 2)
 		array = ft_split(argv[1], ' ');
 	else
