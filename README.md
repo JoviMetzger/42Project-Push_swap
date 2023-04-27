@@ -36,11 +36,11 @@ The Bonus is about creating your own checker program, same behavior as "checker_
 
 If stack_a is sorted and stack_b is empty after executing the instructions, the program must display "OK" on the standard output. In all other cases, it must display "KO". In case of an error, the program must display "Error". The error handling should be the same as "push_swap", including non-integer arguments, arguments that exceed integer limits, duplicates, non-existent instructions, and incorrectly formatted instructions
 
-![video](Screen Recording 2023-04-27 at 1.51.11 PM.gif)
+![video](https://im.ezgif.com/tmp/ezgif-1-7e39653c68.gif)
 
 ## Installation
 
-#### To execute the *Mandatory Part*, follow the steps below:
+### To execute the *Mandatory Part*, follow the steps below:
 
 1. Compile the program by running the following command:
 ```bash
@@ -56,7 +56,7 @@ $ ./push_swap "3 0 9 1"
 ```
 
 
-#### To execute the *Bonus Part*, follow the steps below:
+### To execute the *Bonus Part*, follow the steps below:
 
 1. Compile the bonus by running the following command:
 ```bash
