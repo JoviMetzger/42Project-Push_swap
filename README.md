@@ -30,13 +30,13 @@ This repository contains an algorithm for sorting data using a limited set of in
 - `rrb`: reverse rotate b - shift all elements of stack_b down by one. The last element becomes the first one.
 - `rrr`: reverse rotate both - rra() and rrb() are happening at the same time.
 
+![video](https://im.ezgif.com/tmp/ezgif-1-7e39653c68.gif)
+
 ## About Bonus
 
 The Bonus is about creating your own checker program, same behavior as "checker_Mac" or "checker_linux". The program should behave like "push_swap", except it should not calculate the best rotations/swapping. Instead, it should wait and read instructions on the standard input, and execute them on the given stack.
 
 If stack_a is sorted and stack_b is empty after executing the instructions, the program must display "OK" on the standard output. In all other cases, it must display "KO". In case of an error, the program must display "Error". The error handling should be the same as "push_swap", including non-integer arguments, arguments that exceed integer limits, duplicates, non-existent instructions, and incorrectly formatted instructions
-
-![video](https://im.ezgif.com/tmp/ezgif-1-7e39653c68.gif)
 
 ## Installation
 
