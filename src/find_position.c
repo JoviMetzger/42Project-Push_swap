@@ -69,14 +69,14 @@ static int	find_bigger_index(t_stack *stack_a, int B_idx)
 *       - Once the element with the given index has been found, 
 *         it returns the position.
 */
-static int	find_position(t_stack *stack_a, int B_idx)
+static int	find_position(t_stack *stack_a, int biggest_idx)
 {
 	int	position;
 
 	position = 0;
 	while (stack_a)
 	{
-		if (stack_a->index == B_idx)
+		if (stack_a->index == biggest_idx)
 		{
 			position = stack_a->pos;
 			break ;
