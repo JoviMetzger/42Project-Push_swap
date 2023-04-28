@@ -52,7 +52,7 @@ static int	matching(char *line, t_stack **stack_a, t_stack **stack_b)
 *         and matches the line against a list of predefined commands. 
 *       - If the line matches a command, the function executes it. 
 *       - If the line does not match any commands, the function 
-*         displays "KO" and exits.
+*         displays "Error" and exits.
 */
 static void	executing_input(t_stack **stack_a, t_stack **stack_b)
 {
@@ -73,7 +73,7 @@ static void	executing_input(t_stack **stack_a, t_stack **stack_b)
 
 /* main():
 *   This function checks if the output of push_swap is correct 
-*	    - Checks if the input is formatted correctly and initializes 
+*	- Checks if the input is formatted correctly and initializes 
 *         stacks a and b. 
 *       - Checks if the output is correct. 
 *       - If the output is correct, the function displays "OK". 
