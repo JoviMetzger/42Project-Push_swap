@@ -23,7 +23,7 @@ I followed a documentation on someone that did greedy algorithm sort, but i got 
 1. First, I validate the input and populate stack_a while indexing each number. 
 2. Then, I sort the numbers by pushing everything to stack_b, except for a group of three numbers that are sorted using the sort_3() function. To minimize the cost of sorting, push_to_b() prioritizes smaller numbers before larger ones. 
 3. Once all the numbers are on stack_b, I assign each number a future position in stack_a and calculate two costs: cost_b, which represents the number of rotations needed to bring the number to the top of stack_b, and cost_a, which represents the number of rotations needed to bring the number to its final position in stack_a.
-4. Next, I apply moves depending on where each number is located. For numbers in the lower half of the stack, I reverse rotate, while for numbers in the upper half, I rotate up. This approach optimizes the moves needed to bring each number to its final position. 
+4. Next, I apply moves depending on where each number is located. For numbers in the lower half of the stack, I rotate down, while for numbers in the upper half, I rotate up. This approach optimizes the moves needed to bring each number to its final position. 
 5. Once all the numbers are in stack_a, I check if they are sorted, and if not, I rotate until the lowest index is at the top.
 
 #### The Operations
