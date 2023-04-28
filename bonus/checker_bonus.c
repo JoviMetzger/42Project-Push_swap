@@ -63,7 +63,7 @@ static void	executing_input(t_stack **stack_a, t_stack **stack_b)
 	{
 		if (!matching(line, stack_a, stack_b))
 		{
-			write(1, "KO\n", 3);
+			write(1, "Error\n", 6);
 			exit(EXIT_FAILURE);
 		}
 		free (line);
@@ -93,7 +93,7 @@ int	main(int argc, char **argv)
 		executing_input(&data->stack_a, &data->stack_b);
 		if (data->stack_b != NULL)
 			write(1, "KO\n", 3);
-		else if (stack_sorted(data->stack_a))
+		if (stack_sorted(data->stack_a))
 			write(1, "OK\n", 3);
 		else
 			write(1, "KO\n", 3);
