@@ -83,13 +83,13 @@ $(OBJDIR)/%.o: ./bonus/%.c
 clean:
 		@$(MAKE) clean -C ./libft
 		@rm -rf $(OBJDIR)
-		@echo "$(GREEN) $(ITALIC) ✅ Done ✅$(RESET)"
+		@echo "$(GREEN) $(ITALIC) ✅ Cleaned object files ✅$(RESET)"
 
 fclean: clean
 		@$(MAKE) fclean -C ./libft
 		@rm -f $(NAME)
 		@rm -f $(BONUS)
-		@echo "$(GREEN) $(ITALIC) ✅ Done ✅$(RESET)"
+		@echo "$(GREEN) $(ITALIC) ✅$(RESET)"
 
 re:		fclean all
 
