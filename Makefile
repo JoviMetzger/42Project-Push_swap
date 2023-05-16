@@ -89,7 +89,7 @@ fclean: clean
 		@$(MAKE) fclean -C ./libft
 		@rm -f $(NAME)
 		@rm -f $(BONUS)
-		@echo "$(GREEN) $(ITALIC) ✅$(RESET)"
+		@echo "$(GREEN) $(ITALIC)	  ✅$(RESET)"
 
 re:		fclean all
 
