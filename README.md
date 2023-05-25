@@ -40,7 +40,8 @@ I followed a documentation on someone that did greedy algorithm sort, but i got 
 - `rrb`: reverse rotate b - shift all elements of stack_b down by one. The last element becomes the first one.
 - `rrr`: reverse rotate both - rra() and rrb() are happening at the same time.
 
-![video](https://im.ezgif.com/tmp/ezgif-1-7e39653c68.gif)
+![video](https://github.com/JoviMetzger/42Project-push_swap/assets/117259075/712b4c5e-96f4-47cf-83fc-aa78a82a5c8a)
+
 
 ## About Bonus
 
