@@ -1,4 +1,4 @@
-# 📊 push_swap
+# 📊 Push_swap
 
 This repository contains an algorithm for sorting data using a limited set of instructions and two stacks. The goal is to achieve the most efficient sorting possible, using as few actions as necessary. 
 
