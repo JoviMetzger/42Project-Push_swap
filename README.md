@@ -5,8 +5,8 @@ This repository contains an algorithm for sorting data using a limited set of in
 ## Table of Contents
 
 - [About Mandatory](#About-Mandatory)
-	- [- Steps for Sorting](#Steps-for-Sorting)
-	- [- The Operations](#The-Operations)
+	- [Steps for Sorting](#Steps-for-Sorting)
+	- [The Operations](#The-Operations)
 - [About BONUS](#About-Bonus)
 - [Installation](#Installation)
 - [Testing](#Testing)
