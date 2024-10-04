@@ -107,4 +107,3 @@ $ python3 python_visualizer.py `ruby -e "puts (-50..50).to_a.shuffle.join(' ')"`
 
 - [Algorithm explanations](https://www.programiz.com/dsa/quick-sort)
 - [Documentation on push_swap(greedy)](https://velog.io/@yecn/42seoul-%EC%8A%A4%ED%83%9D-2%EA%B0%9C%EB%A1%9C-%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0pushswap)
-- [Project subject](https://cdn.intra.42.fr/pdf/pdf/73983/en.subject.pdf)
